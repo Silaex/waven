@@ -16,26 +16,3 @@ Root(Feel.createElement('div', {
     },
     CardList(ClassesInfos.getAll())
 )).render();
-
-const targets = document.querySelectorAll('.card');
-
-const lazyLoad = target => {
-    const io = new IntersectionObserver((entries, observer) => {
-        console.log(entries)
-        entries.forEach(entry => {
-            console.log('😍');
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible')
-
-                observer.disconnect();
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-
-    io.observe(target)
-};
-
-targets.forEach(target => lazyLoad(target))
