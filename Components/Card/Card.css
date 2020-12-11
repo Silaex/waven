@@ -1,0 +1,146 @@
+.info.red { background: radial-gradient(ellipse, transparent 50%, var(--red)); }
+.info.yellow { background: radial-gradient(ellipse, transparent 50%, var(--yellow)); }
+.info.brown { background: radial-gradient(ellipse, transparent 50%, var(--brown)); }
+.info.green { background: radial-gradient(ellipse, transparent 50%, var(--green)); }
+.info.kaki { background: radial-gradient(ellipse, transparent 50%, var(--kaki)); }
+.info.purple { background: radial-gradient(ellipse, transparent 50%, var(--purple)); }
+.info.orange { background: radial-gradient(ellipse, transparent 50%, var(--orange)); }
+.info.blue { background: radial-gradient(ellipse, transparent 50%, var(--blue)); }
+.info.navy { background: radial-gradient(ellipse, transparent 50%, var(--navy)); }
+.info.pink { background: radial-gradient(ellipse, transparent 50%, var(--pink)); }
+.info.seal { background: radial-gradient(ellipse, transparent 50%, var(--seal)); }
+.info.black { background: radial-gradient(ellipse, transparent 50%, var(--black)); }
+.info.dark { background: radial-gradient(ellipse, transparent 50%, var(--dark)); }
+.info.white { background: radial-gradient(ellipse, transparent 50%, var(--white)); }
+
+.red-shadow { filter: drop-shadow(0 0 1px var(--red)); }
+.brown-shadow { filter: drop-shadow(0 0 1px var(--brown)); }
+.yellow-shadow { filter: drop-shadow(0 0 1px var(--yellow)); }
+.green-shadow { filter: drop-shadow(0 0 1px var(--green)); }
+.kaki-shadow { filter: drop-shadow(0 0 1px var(--kaki)); }
+.purple-shadow { filter: drop-shadow(0 0 1px var(--purple)); }
+.orange-shadow { filter: drop-shadow(0 0 1px var(--orange)); }
+.blue-shadow { filter: drop-shadow(0 0 1px var(--blue)); }
+.navy-shadow { filter: drop-shadow(0 0 1px var(--navy)); }
+.pink-shadow { filter: drop-shadow(0 0 1px var(--pink)); }
+.black-shadow { filter: drop-shadow(0 0 1px var(--black)); }
+.dark-shadow { filter: drop-shadow(0 0 1px var(--dark)); }
+.white-shadow { filter: drop-shadow(0 0 1px var(--white)); }
+.seal-shadow { filter: drop-shadow(0 0 1px var(--seal)); }
+
+#card-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+}
+
+#card-container .card {
+    background: #222;
+    position: relative;
+}
+
+.card {
+    opacity: 0;
+}
+
+.card.visible {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.card .info {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    color: white;
+    overflow: hidden;
+    transition: opacity .25s;
+}
+
+.card:hover .info { opacity: 1; }
+
+.card .info .name {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    width: 100%;
+    bottom: 0;
+    font-size: 20px;
+}
+
+.card .info .logo {
+    align-self: center;
+    height: 25%;
+    min-height: 64px;
+    user-select: none;
+    display: none;
+}
+
+.card .info .aside-logo {
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: block;
+    user-select: none;
+}
+
+.card .image {
+    width: 100%;
+    height: 0;
+    padding: 50% 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card .image img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all .2s;
+    user-select: none;
+}
+
+
+@media screen and (min-width: 768px) {
+    #card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #card-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .card .info { opacity: 0; }
+    .card .info .logo { display: block; }
+    .card .info .name { font-size: 2.5rem; }
+    .card .info .aside-logo { display: none; }
+    .card .info .name { text-align: center; }
+    .card:hover .image img {
+        filter: blur(4px);
+        transform: scale(0.85);
+    }
+    .card .image {
+        padding: 100% 0;
+    }
+}

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <script type="module" src="./main.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Style/main.css">
         <title>Projet Waven</title>
         <style>
             @font-face {
@@ -11,167 +12,14 @@
                 src: url('./Fonts/BebasNeue-Regular.otf') format('opentype');
             }
 
+            html, body, #root {
+                height: 100%;
+            }
+
             body {
                 margin: 0;
-                min-height: 100vh;
                 font-family: 'BebasNeue';
-                --kaki: #96934C;
-                --green: #B0CD23;
-                --blue: #3498db;
-                --purple: #9b59b6;
-                --pink: #df6bc6;
-                --navy: #294FB7;
-                --orange: #e67e22;
-                --red: #e74c3c;
-                --yellow: #e6c222;
-                --black: #212121;
-                --brown: #744a14;
-                --seal: #467B75;
-            }
-
-            .info.red { background: radial-gradient(ellipse, transparent 50%, var(--red)); }
-            .info.yellow { background: radial-gradient(ellipse, transparent 50%, var(--yellow)); }
-            .info.brown { background: radial-gradient(ellipse, transparent 50%, var(--brown)); }
-            .info.green { background: radial-gradient(ellipse, transparent 50%, var(--green)); }
-            .info.kaki { background: radial-gradient(ellipse, transparent 50%, var(--kaki)); }
-            .info.purple { background: radial-gradient(ellipse, transparent 50%, var(--purple)); }
-            .info.orange { background: radial-gradient(ellipse, transparent 50%, var(--orange)); }
-            .info.blue { background: radial-gradient(ellipse, transparent 50%, var(--blue)); }
-            .info.navy { background: radial-gradient(ellipse, transparent 50%, var(--navy)); }
-            .info.pink { background: radial-gradient(ellipse, transparent 50%, var(--pink)); }
-            .info.seal { background: radial-gradient(ellipse, transparent 50%, var(--seal)); }
-
-            .red-shadow { filter: drop-shadow(0 0 1px var(--red)); }
-            .brown-shadow { filter: drop-shadow(0 0 1px var(--brown)); }
-            .yellow-shadow { filter: drop-shadow(0 0 1px var(--yellow)); }
-            .green-shadow { filter: drop-shadow(0 0 1px var(--green)); }
-            .kaki-shadow { filter: drop-shadow(0 0 1px var(--kaki)); }
-            .purple-shadow { filter: drop-shadow(0 0 1px var(--purple)); }
-            .orange-shadow { filter: drop-shadow(0 0 1px var(--orange)); }
-            .blue-shadow { filter: drop-shadow(0 0 1px var(--blue)); }
-            .navy-shadow { filter: drop-shadow(0 0 1px var(--navy)); }
-            .pink-shadow { filter: drop-shadow(0 0 1px var(--pink)); }
-            .black-shadow { filter: drop-shadow(0 0 1px var(--black)); }
-            .seal-shadow { filter: drop-shadow(0 0 1px var(--seal)); }
-
-
-            #card-container {
-                position: relative;
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                grid-auto-rows: 1fr;
-                grid-auto-flow: dense;
-                width: 100%;
-                min-height: 100vh;
-                background: black;
-            }
-
-            #card-container .card {
-                background: #222;
-                position: relative;
-            }
-
-            .card {
-                opacity: 0;
-            }
-
-            .card.visible {
-                opacity: 1;
-                transition: opacity .5s;
-            }
-
-            .card .info {
-                box-sizing: border-box;
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                z-index: 1;
-                opacity: 0;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                padding: 1rem;
-                color: white;
-                overflow: hidden;
-                transition: opacity .25s;
-            }
-
-            .card:hover .info { opacity: 1; cursor: pointer; }
-
-            .card .info .name {
-                box-sizing: border-box;
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 8px 16px;
-                width: 100%;
-                bottom: 0;
-                font-size: 32px;
-                text-align: center;
-            }
-
-            .card .info .logo {
-                align-self: center;
-                height: 25%;
-                min-height: 64px;
-                user-select: none;
-            }
-
-            .card .info .aside-logo {
-                margin-right: 8px;
-                flex-shrink: 0;
-                width: 40px;
-                height: 40px;
-                display: none;
-                user-select: none;
-            }
-
-            .card .image {
-                width: 100%;
-                height: 0;
-                padding: 100% 0;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .card .image img {
-                object-fit: cover;
-                object-position: center;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                transition: all .2s;
-                user-select: none;
-            }
-
-            .card:hover .image img {
-                filter: blur(4px);
-                transform: scale(0.85);
-            }
-
-            @media screen and (max-width: 1024px) {
-                #card-container {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-                .card .info { opacity: 1; }
-                .card .info .logo { display: none; }
-                .card .info .name { font-size: 24px; }
-                .card .info .aside-logo { display: block; }
-                .card .info .name { text-align: unset; }
-                .card:hover .image img {
-                    transform: none;
-                    filter: none;
-                }
-            }
-
-            @media screen and (max-width: 768px) {
-                #card-container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                .card .info { opacity: 1; }
+                cursor: url("Images/cursor.png"), auto;
             }
         </style>
     </head>
